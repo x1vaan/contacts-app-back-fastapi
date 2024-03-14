@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from users import service
 from sqlalchemy.orm import Session
 from database import SessionLocal, get_db
-from users.dtos import userDto
+from users.dtos import create_user_dto
 
 router = APIRouter(prefix="/users")
 
@@ -10,6 +10,6 @@ router = APIRouter(prefix="/users")
 def users(db : Session = Depends(get_db)):
     return service.users(db)
 
-@router.post("/login")
-def postUsers(user_dto : userDto, db : Session = Depends(get_db)):
-    return service.postUser(user_dto=user_dto, db=db)
+@router.post("/create")
+def createUser(user_dto : create_user_dto, db : Session = Depends(get_db)):
+    return service.createUser(user_dto=user_dto, db=db)

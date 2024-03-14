@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class userDto(BaseModel):
+class create_user_dto(BaseModel):
     name : str
     username : str
     email : str
