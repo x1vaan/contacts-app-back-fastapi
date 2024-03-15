@@ -1,9 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, Field
 
 class create_user_dto(BaseModel):
-    name : str
+    name : str = Field(min_length=1, max_length=40)
     username : str
-    email : str
+    email : EmailStr
     password : str
 
     class Config:
