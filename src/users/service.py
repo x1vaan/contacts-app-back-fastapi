@@ -14,5 +14,5 @@ def createUser(user_dto : create_user_dto, db : Session):
     return user
 
 def getUserByEmail(email : str, db : Session):
-    user = db.query(User).filter(User.email is email).first()
+    user = db.query(User).filter(User.email == email).all()
     return user
